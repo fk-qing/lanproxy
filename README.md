@@ -33,6 +33,7 @@ lanproxy是一个将局域网个人电脑、服务器代理到公网的内网穿
 - lanproxy-go-client https://github.com/ffay/lanproxy-go-client
 - 发布包下载地址 https://github.com/ffay/lanproxy/releases
 
+
 ### 使用
 
 #### 获取发布包
@@ -147,3 +148,18 @@ nohup ./client_linux_amd64 -s SERVER_IP -p SERVER_SSL_PORT -k CLIENT_KEY -ssl tr
 
 - 在家里使用公司的网络，可以和 https://github.com/ffay/http-proxy-server 这个http代理项目配合使用（个人升级版已经内置代理上网功能，详细资料 https://file.nioee.com/f/76ebbce67c864e4dbe7e/ ）
 - 对于正常网站，80和443端口只有一个，可以购买个人升级版本解决端口复用问题
+
+自启动
+
+方法：
+
+1、新建一个文件：/etc/rc.local
+
+内容如下：
+
+#!/bin/sh
+sh /path/to/proxy-java-client-0.1/bin/startup.sh
+exit 0
+2、设置文件可执行：
+
+sudo chmod +x /etc/rc.local
